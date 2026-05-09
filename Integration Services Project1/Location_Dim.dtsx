@@ -1,67 +1,77 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/7/2026 9:11:46 PM"
+  DTS:CreationDate="5/9/2026 4:45:15 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="MAHMOUD"
-  DTS:CreatorName="MAHMOUD\mahmo"
-  DTS:DTSID="{F6BB4CC5-9DAF-467C-9E9C-5ABB58C01387}"
+  DTS:CreatorComputerName="ZANATY"
+  DTS:CreatorName="ZANATY\midoz"
+  DTS:DTSID="{8D781EBE-FE61-447A-A776-2445C06CE502}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{729AFAB2-3752-497B-947C-A276CAA5841B}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{602BD4B3-6B41-4DE3-9071-3FE5595EEEBE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_DWH]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{2B07E3C6-AFFF-4A93-A0D6-7EF43FEC9851}"
+      DTS:DTSID="{5BE9096A-32D2-4534-99C9-CFED18BA1200}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_DWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{2B07E3C6-AFFF-4A93-A0D6-7EF43FEC9851}localhost\SQLEXPRESS.Olist_DWH;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{5BE9096A-32D2-4534-99C9-CFED18BA1200}localhost\SQLEXPRESS.Olist_DWH;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_Source_OLTP]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{F09ADEB7-8518-4732-8AD7-2BE89D961B16}"
+      DTS:DTSID="{43B87354-972C-4FFA-8B0A-61866E5CDAFA}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_Source_OLTP">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Source_OLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F09ADEB7-8518-4732-8AD7-2BE89D961B16}localhost\SQLEXPRESS.Olist_Source_OLTP;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Source_OLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{43B87354-972C-4FFA-8B0A-61866E5CDAFA}localhost\SQLEXPRESS.Olist_Source_OLTP;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{8479DA88-0F35-4852-90F6-A03BA01344C2}"
+      DTS:DTSID="{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{8479DA88-0F35-4852-90F6-A03BA01344C2}localhost\SQLEXPRESS.Olist_Stage;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}localhost\SQLEXPRESS.Olist_Stage;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A0B5D71F-1B5C-42B5-8070-7D26368E976B}"
+      DTS:DTSID="{B7927B1E-3571-4D5E-BA92-0A2C8421AA65}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="GeoLastExtractDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/9/2026 4:55:49 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D3ED596-F387-40C5-A101-B5BFDA3A174F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="LastExtractDateiable">
+      DTS:ObjectName="GeoLastExtractDate1">
       <DTS:VariableValue
-        DTS:DataType="7">5/9/2026 2:51:14 PM</DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -69,7 +79,7 @@
       DTS:refId="Package\get last estract date"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2A8A8ED9-0157-41F4-B6A6-5B55E1D95EA3}"
+      DTS:DTSID="{64c6a94a-ea33-4fc5-abe9-9abc5e24df81}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="get last estract date"
@@ -78,12 +88,12 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8479DA88-0F35-4852-90F6-A03BA01344C2}"
-          SQLTask:SqlStatementSource="  SELECT last_extract_date&#xA;  FROM STG.etl_watermark&#xA;  WHERE table_name = 'Customer'"
+          SQLTask:Connection="{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}"
+          SQLTask:SqlStatementSource="  SELECT last_extract_date&#xA;  FROM STG.etl_watermark&#xA;  WHERE table_name = 'Geolocation'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::LastExtractDateiable" />
+            SQLTask:DtsVariableName="User::GeoLastExtractDate" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -91,7 +101,7 @@
       DTS:refId="Package\load to dimnsion"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{1BBCDE3E-7AEF-44D9-B4EC-36C982BBBB15}"
+      DTS:DTSID="{513a4512-1f41-412b-aacb-1399078b6a25}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="load to dimnsion"
@@ -117,7 +127,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Dim_Customer]</property>
+                  name="OpenRowset">[dbo].[Dim_Location]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -174,36 +184,46 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_unique_id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="customer_unique_id"
-                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]" />
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_zip_code_prefix]"
+                      cachedDataType="i4"
+                      cachedName="geolocation_zip_code_prefix"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zip_code_prefix]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]" />
                     <inputColumn
-                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_city]"
+                      cachedDataType="nText"
+                      cachedName="geolocation_city"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]" />
+                    <inputColumn
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_state]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="customer_id"
-                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_bk]"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      cachedName="geolocation_state"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_sk]"
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location_sk]"
                       dataType="i4"
-                      name="customer_sk" />
+                      name="location_sk" />
                     <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_bk]"
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zip_code_prefix]"
+                      dataType="wstr"
+                      length="10"
+                      name="zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="100"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
                       dataType="wstr"
                       length="50"
-                      name="customer_bk" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_unique_id" />
+                      name="state" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -248,7 +268,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[STG].[Customer]</property>
+                  name="OpenRowset">[STG].[Geolocation]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -294,61 +314,101 @@
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      dataType="wstr"
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      length="50"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      name="customer_id"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
+                      name="geolocation_zip_code_prefix"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]"
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
+                      name="geolocation_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_unique_id]"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
                       length="50"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]"
-                      name="customer_unique_id"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]"
+                      name="geolocation_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
+                      name="last_update"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_timestamp]"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_timestamp]"
+                      name="create_timestamp"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_id" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_unique_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_unique_id" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_zip_code_prefix]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_zip_code_prefix" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
-                      dataType="wstr"
-                      length="100"
-                      name="customer_city" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_state" />
-                    <externalMetadataColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[src_update_date]"
-                      dataType="dbTimeStamp"
-                      name="src_update_date" />
-                    <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_timestamp]"
                       dataType="dbTimeStamp"
                       name="create_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      name="geolocation_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      dataType="r8"
+                      name="geolocation_lat" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      dataType="r8"
+                      name="geolocation_lng" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      dataType="nText"
+                      name="geolocation_city" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
+                      dataType="wstr"
+                      length="50"
+                      name="geolocation_state" />
+                    <externalMetadataColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
+                      dataType="dbTimeStamp"
+                      name="last_update" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -357,17 +417,36 @@
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
-                      name="customer_id" />
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
+                      name="geolocation_zip_code_prefix" />
                     <outputColumn
-                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_unique_id]"
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      dataType="r8"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      name="geolocation_lat" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      dataType="r8"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      name="geolocation_lng" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
+                      dataType="nText"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
+                      name="geolocation_city" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_state]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_unique_id]"
-                      name="customer_unique_id" />
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_state]"
+                      name="geolocation_state" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
+                      name="last_update" />
                     <outputColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -380,6 +459,11 @@
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_timestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_timestamp]"
+                      name="create_timestamp" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -400,7 +484,7 @@
       DTS:refId="Package\Load to stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{23D6B12B-D942-4DFC-8261-610C8C6E2E18}"
+      DTS:DTSID="{60f9fbed-2e85-4902-ac13-d4368f34cd35}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Load to stage"
@@ -499,7 +583,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[STG].[Customer]</property>
+                  name="OpenRowset">[STG].[Geolocation]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -556,83 +640,76 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_unique_id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="customer_unique_id"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]" />
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_update]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="last_update"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_update]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                     <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="customer_id"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_zip_code_prefix]"
+                      cachedDataType="i4"
+                      cachedName="geolocation_zip_code_prefix"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_zip_code_prefix]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]" />
                     <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_zip_code_prefix]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="customer_zip_code_prefix"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_lat]"
+                      cachedDataType="r8"
+                      cachedName="geolocation_lat"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lat]" />
                     <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_city]"
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_lng]"
+                      cachedDataType="r8"
+                      cachedName="geolocation_lng"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]" />
+                    <inputColumn
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_city]"
                       cachedDataType="nText"
-                      cachedName="customer_city"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]" />
+                      cachedName="geolocation_city"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_city]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]" />
                     <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_state]"
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_state]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="customer_state"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_state]" />
+                      cachedName="geolocation_state"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_state]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]" />
                     <inputColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[create_timestamp]"
                       cachedDataType="dbTimeStamp"
                       cachedName="create_timestamp"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_timestamp]"
                       lineageId="Package\Load to stage\Derived Column.Outputs[Derived Column Output].Columns[create_timestamp]" />
-                    <inputColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_update]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="last_update"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      name="geolocation_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      dataType="r8"
+                      name="geolocation_lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      dataType="r8"
+                      name="geolocation_lng" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_city]"
+                      dataType="nText"
+                      name="geolocation_city" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_state]"
                       dataType="wstr"
                       length="50"
-                      name="customer_id" />
+                      name="geolocation_state" />
                     <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_unique_id" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_zip_code_prefix" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
-                      dataType="wstr"
-                      length="100"
-                      name="customer_city" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_state" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
+                      refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_update]"
                       dataType="dbTimeStamp"
-                      name="src_update_date" />
+                      name="last_update" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_timestamp]"
                       dataType="dbTimeStamp"
@@ -681,7 +758,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Dim_Customer]</property>
+                  name="OpenRowset"></property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -691,7 +768,7 @@
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
-FROM olist_customers_dataset
+FROM olist_geolocation_dataset
 WHERE last_update &gt; ?</property>
                 <property
                   dataType="System.String"
@@ -713,7 +790,7 @@ WHERE last_update &gt; ?</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{A0B5D71F-1B5C-42B5-8070-7D26368E976B};</property>
+                  name="ParameterMapping">"Parameter0:Input",{B7927B1E-3571-4D5E-BA92-0A2C8421AA65};</property>
               </properties>
               <connections>
                 <connection
@@ -729,55 +806,6 @@ WHERE last_update &gt; ?</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_unique_id]"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_unique_id]"
-                      name="customer_unique_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      name="customer_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_zip_code_prefix]"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]"
-                      name="customer_zip_code_prefix"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]"
-                      name="customer_city"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_state]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_state]"
-                      name="customer_state"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
@@ -786,37 +814,80 @@ WHERE last_update &gt; ?</property>
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
                       name="last_update"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
+                      name="geolocation_zip_code_prefix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
+                      name="geolocation_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
+                      length="50"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_state]"
+                      name="geolocation_state"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_unique_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_unique_id" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_id" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_zip_code_prefix]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_zip_code_prefix" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
-                      dataType="nText"
-                      name="customer_city" />
-                    <externalMetadataColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
-                      dataType="wstr"
-                      length="50"
-                      name="customer_state" />
-                    <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
                       dataType="dbTimeStamp"
                       name="last_update" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      name="geolocation_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      dataType="r8"
+                      name="geolocation_lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      dataType="r8"
+                      name="geolocation_lng" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      dataType="nText"
+                      name="geolocation_city" />
+                    <externalMetadataColumn
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
+                      dataType="wstr"
+                      length="50"
+                      name="geolocation_state" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -825,34 +896,31 @@ WHERE last_update &gt; ?</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
-                      name="customer_id" />
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
+                      dataType="i4"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
+                      name="geolocation_zip_code_prefix" />
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_unique_id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_unique_id]"
-                      name="customer_unique_id" />
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      dataType="r8"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      name="geolocation_lat" />
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_zip_code_prefix]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_zip_code_prefix]"
-                      name="customer_zip_code_prefix" />
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      dataType="r8"
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      name="geolocation_lng" />
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_city]"
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
                       dataType="nText"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_city]"
-                      name="customer_city" />
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
+                      name="geolocation_city" />
                     <outputColumn
-                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_state]"
+                      refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_state]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_state]"
-                      name="customer_state" />
+                      lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_state]"
+                      name="geolocation_state" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
                       dataType="dbTimeStamp"
@@ -895,7 +963,7 @@ WHERE last_update &gt; ?</property>
       DTS:refId="Package\trancate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{1578EDFC-7565-4E61-BBA0-5A76E189223B}"
+      DTS:DTSID="{c6c8b6a5-5b1c-4727-8d8f-0408e003c966}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trancate"
@@ -904,15 +972,15 @@ WHERE last_update &gt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8479DA88-0F35-4852-90F6-A03BA01344C2}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE STG.Customer;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG.Geolocation;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\update conf table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7e66222c-ad1d-4dcf-9a8f-5dba1d984e7b}"
+      DTS:DTSID="{95d5f5a9-ff56-47cb-ac95-fa96847364ca}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="update conf table"
@@ -921,8 +989,8 @@ WHERE last_update &gt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8479DA88-0F35-4852-90F6-A03BA01344C2}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Customer';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}"
+          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Geolocationr';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -930,7 +998,7 @@ WHERE last_update &gt; ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{EFD0E990-07F3-4114-8607-44A5664A245A}"
+      DTS:DTSID="{1c7e43c4-a655-4ef1-af36-1fdfbed11cb2}"
       DTS:From="Package\trancate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -938,7 +1006,7 @@ WHERE last_update &gt; ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{538EBC49-C654-43BF-BE51-D4B6B0548BEE}"
+      DTS:DTSID="{2d7531df-4224-4526-abff-3847ca96f21c}"
       DTS:From="Package\get last estract date"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -946,7 +1014,7 @@ WHERE last_update &gt; ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{FE0DDF49-86D8-42EA-A83F-A89966CA27CE}"
+      DTS:DTSID="{4189df01-aa40-466d-a896-a0fb4991426f}"
       DTS:From="Package\Load to stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -954,7 +1022,7 @@ WHERE last_update &gt; ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{F5EAB58F-D046-46BD-B04E-3B1DF6000AB2}"
+      DTS:DTSID="{8974a86c-19af-4f95-956d-b1820ce3fd88}"
       DTS:From="Package\load to dimnsion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -975,22 +1043,26 @@ WHERE last_update &gt; ?</property>
         <NodeLayout
           Size="175,42"
           Id="Package\get last estract date"
-          TopLeft="463,134" />
+          TopLeft="382,134" />
         <NodeLayout
           Size="159,42"
           Id="Package\load to dimnsion"
-          TopLeft="470,324" />
+          TopLeft="389,324" />
         <NodeLayout
           Size="145,42"
           Id="Package\Load to stage"
-          TopLeft="478.5,228.5" />
+          TopLeft="397.5,228.5" />
         <NodeLayout
           Size="119,42"
           Id="Package\trancate"
-          TopLeft="489,50" />
+          TopLeft="408,50" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\update conf table"
+          TopLeft="384,407" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="549.5,92">
+          TopLeft="468.5,92">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1012,7 +1084,7 @@ WHERE last_update &gt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="550.75,176">
+          TopLeft="469.75,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1034,7 +1106,7 @@ WHERE last_update &gt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="550.25,270.5">
+          TopLeft="469.25,270.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1054,13 +1126,9 @@ WHERE last_update &gt; ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\update conf table"
-          TopLeft="465,407" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="548,366">
+          TopLeft="467,366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1087,15 +1155,15 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\load to dimnsion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\load to dimnsion\OLE DB Source"
-          TopLeft="370,234" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
           Id="Package\load to dimnsion\OLE DB Destination"
           TopLeft="360,345" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\load to dimnsion\OLE DB Source"
+          TopLeft="370,234" />
         <EdgeLayout
           Id="Package\load to dimnsion.Paths[OLE DB Source Output]"
           TopLeft="448.5,276">
@@ -1115,9 +1183,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,22.75,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1153,7 +1219,7 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\Load to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
           Id="Package\Load to stage\OLE DB Destination"
@@ -1197,9 +1263,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.75,39.5,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1221,9 +1285,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,17.75,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
