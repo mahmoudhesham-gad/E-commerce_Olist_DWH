@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="5/10/2026 4:27:35 PM"
@@ -11,9 +11,47 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionGUID="{07544E73-439D-4E94-9FC7-D10277F53BF0}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{9F3FF11D-82A1-4861-960A-F728497DDF76}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FED05A27-5C50-45D3-83C8-EF7499AB8D81}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:SqlStatementSource="DECLARE @StartDate DATE = '2020-01-01';&#xA;DECLARE @EndDate DATE = '2030-12-31';&#xA;&#xA;-- Loop to insert dates one by one&#xA;WHILE @StartDate &lt;= @EndDate&#xA;BEGIN&#xA;    INSERT INTO Dim_Date (&#xA;        date_sk, &#xA;        full_date, &#xA;        year, &#xA;        quarter, &#xA;        month, &#xA;        day_of_week&#xA;    )&#xA;    VALUES (&#xA;        CAST(CONVERT(VARCHAR(8), @StartDate, 112) AS INT), -- date_sk format: YYYYMMDD&#xA;        @StartDate,                                        -- full_date&#xA;        YEAR(@StartDate),                                  -- year&#xA;        DATEPART(QUARTER, @StartDate),                     -- quarter&#xA;        MONTH(@StartDate),                                 -- month&#xA;        DATEPART(WEEKDAY, @StartDate)                      -- day_of_week (1 = Sunday, 2 = Monday, etc.)&#xA;    );&#xA;&#xA;    -- Increment the date by 1 day&#xA;    SET @StartDate = DATEADD(DAY, 1, @StartDate);&#xA;END;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="700,360" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
