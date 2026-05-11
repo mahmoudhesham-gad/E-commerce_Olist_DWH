@@ -5,58 +5,58 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="ZANATY"
   DTS:CreatorName="ZANATY\midoz"
-  DTS:DTSID="{7DD5533E-6D77-4069-B7F2-D82BF1C8BDF3}"
+  DTS:DTSID="{8DC6CCED-3EB6-4BC0-9820-255DA3A3FAD4}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Seller_Dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{2BACE4D7-D636-4A90-B920-DBCC23CAE5CC}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{EBA4D71D-F321-4FA9-875B-84A65CF7BBF3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_DWH]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{38369123-6225-413E-A22F-2F0A0494EAF6}"
+      DTS:DTSID="{E43A20DF-8EDB-40D2-8C48-C5222DE02962}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_DWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{38369123-6225-413E-A22F-2F0A0494EAF6}localhost\SQLEXPRESS.Olist_DWH;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{E43A20DF-8EDB-40D2-8C48-C5222DE02962}localhost\SQLEXPRESS.Olist_DWH;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_Source_OLTP]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{88BF4521-7974-4373-9E20-3372FB181A9A}"
+      DTS:DTSID="{33DFD407-10D1-4E40-90AC-BF6BF2A3F7B5}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_Source_OLTP">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Source_OLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{88BF4521-7974-4373-9E20-3372FB181A9A}localhost\SQLEXPRESS.Olist_Source_OLTP;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Source_OLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{33DFD407-10D1-4E40-90AC-BF6BF2A3F7B5}localhost\SQLEXPRESS.Olist_Source_OLTP;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D3FFF8E3-26B8-467E-B9C3-14D15A220434}"
+      DTS:DTSID="{C4D51B04-2663-4689-B057-B251C625B597}"
       DTS:ObjectName="localhost\SQLEXPRESS.Olist_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{D3FFF8E3-26B8-467E-B9C3-14D15A220434}localhost\SQLEXPRESS.Olist_Stage;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Olist_Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Seller_Dim-{C4D51B04-2663-4689-B057-B251C625B597}localhost\SQLEXPRESS.Olist_Stage;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D787658A-5532-4062-8B17-ECDADC11EF07}"
+      DTS:DTSID="{DF3244BF-FF2D-41A3-9822-FBAADF1D6763}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="SellerLastExtractDate">
@@ -69,7 +69,7 @@
       DTS:refId="Package\get last estract date"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{c4be9292-617a-4cc7-9de2-5c32cfd43cb4}"
+      DTS:DTSID="{930FCD93-65D2-4F92-9D25-83A23ADA86D1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="get last estract date"
@@ -78,7 +78,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3FFF8E3-26B8-467E-B9C3-14D15A220434}"
+          SQLTask:Connection="{C4D51B04-2663-4689-B057-B251C625B597}"
           SQLTask:SqlStatementSource="  SELECT last_extract_date&#xA;  FROM STG.etl_watermark&#xA;  WHERE table_name = 'Seller'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -91,7 +91,7 @@
       DTS:refId="Package\load to dimnsion"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{c0055671-f6b0-4eef-98b6-ab3a8072514c}"
+      DTS:DTSID="{6C3EF971-BD71-42A4-A5BA-8BA33C7C467D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="load to dimnsion"
@@ -479,7 +479,7 @@
       DTS:refId="Package\Load to stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{3ec2c4fc-d6d4-4ce5-b01a-8a200b29348a}"
+      DTS:DTSID="{F55A3C6B-9639-46F3-A23C-B2769E1A64EC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Load to stage"
@@ -943,7 +943,7 @@
       DTS:refId="Package\trancate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{3cabc71f-7c54-4ff0-b750-242576c8848f}"
+      DTS:DTSID="{61DA90FA-488D-49D3-B4FE-7A955B9FB98D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trancate"
@@ -952,7 +952,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3FFF8E3-26B8-467E-B9C3-14D15A220434}"
+          SQLTask:Connection="{C4D51B04-2663-4689-B057-B251C625B597}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE STG.Seller;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -960,7 +960,7 @@
       DTS:refId="Package\update conf table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{75e8c1c6-ec82-49b8-8337-d5f66002e1da}"
+      DTS:DTSID="{E9DDD88B-2A06-4F66-B45C-D6D4E57180CE}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="update conf table"
@@ -969,7 +969,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3FFF8E3-26B8-467E-B9C3-14D15A220434}"
+          SQLTask:Connection="{C4D51B04-2663-4689-B057-B251C625B597}"
           SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Seller';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -978,7 +978,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{40aa113a-f205-43fe-96b6-c6f43e9ed990}"
+      DTS:DTSID="{5824E748-2830-4C35-B9E3-751CC968DED6}"
       DTS:From="Package\trancate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -986,7 +986,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{d5ff0303-0323-42e9-852a-83c790501ca8}"
+      DTS:DTSID="{BB6A5A3E-9745-480A-B155-CF801A5AF91A}"
       DTS:From="Package\get last estract date"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -994,7 +994,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{1e07c054-ef13-4515-a081-12f314521009}"
+      DTS:DTSID="{EE03A0CD-93D6-43AB-A645-910805CC3C3D}"
       DTS:From="Package\Load to stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1002,7 +1002,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{c54b4b04-b403-4be2-bdf4-c243ac74b58b}"
+      DTS:DTSID="{EFB605B9-422B-44F0-A43A-974F03917A78}"
       DTS:From="Package\load to dimnsion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -1021,23 +1021,23 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\get last estract date"
           TopLeft="60,144" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\load to dimnsion"
           TopLeft="67,334" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Load to stage"
           TopLeft="74.5,238.5" />
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\trancate"
           TopLeft="86,60" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\update conf table"
           TopLeft="62,417" />
         <EdgeLayout
@@ -1135,7 +1135,7 @@
     design-time-name="Package\load to dimnsion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177,42"
           Id="Package\load to dimnsion\OLE DB Destination"
@@ -1163,7 +1163,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1199,15 +1201,43 @@
     design-time-name="Package\Load to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="158,42"
-          Id="Package\Load to stage\Derived Column"
-          TopLeft="664,245" />
+          Size="157,42"
+          Id="Package\Load to stage\OLE DB Source"
+          TopLeft="663,123" />
         <NodeLayout
           Size="177,42"
           Id="Package\Load to stage\OLE DB Destination"
           TopLeft="664,353" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load to stage\Derived Column"
+          TopLeft="664,245" />
+        <EdgeLayout
+          Id="Package\Load to stage.Paths[OLE DB Source Output]"
+          TopLeft="742.25,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load to stage.Paths[Derived Column Output]"
           TopLeft="743,287">
@@ -1239,40 +1269,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Load to stage\OLE DB Source"
-          TopLeft="663,123" />
-        <EdgeLayout
-          Id="Package\Load to stage.Paths[OLE DB Source Output]"
-          TopLeft="742.25,165">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80"
-              Start="0,0"
-              End="0,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load to stage\OLE DB Destination">
+    design-time-name="Package\Load to stage\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1285,7 +1291,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load to stage\OLE DB Source">
+    design-time-name="Package\Load to stage\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

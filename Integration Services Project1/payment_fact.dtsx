@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="payment_fact"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{00C018C6-AAF3-4B4B-9607-2B6DCCBD6F39}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{3A19B24B-40A9-41A4-9F3F-90DC843E8224}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -161,13 +161,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,10)(DT_DATE)#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}</property>
+                          name="Expression">(DT_WSTR,4)[YEAR](#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}) + "-" + [RIGHT]("0" + (DT_WSTR,2)[MONTH](#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}),2) + "-" + [RIGHT]("0" + (DT_WSTR,2)[DAY](#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}),2)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,10)(DT_DATE)order_purchase_timestamp</property>
+                          name="FriendlyExpression">(DT_WSTR,4)YEAR(order_purchase_timestamp) + "-" + RIGHT("0" + (DT_WSTR,2)MONTH(order_purchase_timestamp),2) + "-" + RIGHT("0" + (DT_WSTR,2)DAY(order_purchase_timestamp),2)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -409,7 +409,7 @@ where [refTable].[zip_code_prefix] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="zip_code_prefix" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="state" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="zip_code_prefix" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="state" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -462,7 +462,7 @@ where [refTable].[zip_code_prefix] = ?</property>
                 <output
                   refId="Package\Dim Payment Fact\Lookup 1.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Dim Payment Fact\Lookup 1.Inputs[Lookup Input]">
@@ -573,7 +573,7 @@ where [refTable].[payment_type_name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_type]};</property>
+                  name="ParameterMap">#{Package\Dim Payment Fact\135:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -668,6 +668,165 @@ where [refTable].[payment_type_name] = ?</property>
                       refId="Package\Dim Payment Fact\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dim Payment Fact\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim Payment Fact\Lookup 3"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 3"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Customer]) [refTable]
+where [refTable].[customer_bk] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_bk" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_unique_id" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim Payment Fact\Lookup 3.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\SQLEXPRESS.Olist_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_bk</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Match Output].Columns[customer_sk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Match Output].Columns[customer_sk]"
+                      name="customer_sk"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_sk</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -793,12 +952,11 @@ where [refTable].[payment_type_name] = ?</property>
                       externalMetadataColumnId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_date_sk]"
                       lineageId="Package\Dim Payment Fact\Lookup.Outputs[Lookup Match Output].Columns[date_sk]" />
                     <inputColumn
-                      refId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="customer_id"
+                      refId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_sk]"
+                      cachedDataType="i4"
+                      cachedName="customer_sk"
                       externalMetadataColumnId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_sk]"
-                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      lineageId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Match Output].Columns[customer_sk]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1113,6 +1271,18 @@ where [refTable].[payment_type_name] = ?</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
                       refId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[order_id]"
                       dataType="wstr"
                       length="50"
@@ -1180,18 +1350,6 @@ where [refTable].[payment_type_name] = ?</property>
                       dataType="dbTimeStamp"
                       lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_timestamp]"
                       name="create_timestamp" />
-                    <outputColumn
-                      refId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Dim Payment Fact\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1216,9 +1374,14 @@ where [refTable].[payment_type_name] = ?</property>
               startId="Package\Dim Payment Fact\Lookup 1.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Dim Payment Fact.Paths[Lookup Match Output2]"
-              endId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Dim Payment Fact\Lookup 3.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Dim Payment Fact\Lookup 2.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Dim Payment Fact.Paths[Lookup Match Output3]"
+              endId="Package\Dim Payment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Dim Payment Fact\Lookup 3.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Dim Payment Fact.Paths[OLE DB Source Output]"
               endId="Package\Dim Payment Fact\Derived Column.Inputs[Derived Column Input]"
@@ -1713,6 +1876,41 @@ where [refTable].[customer_id] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_value]"
                       lineageId="Package\Staging_Payment_Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_value]" />
+                    <inputColumn
+                      refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Staging_Payment_Fact\Lookup.Outputs[Lookup Match Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="order_purchase_timestamp"
+                      externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\Staging_Payment_Fact\Lookup.Outputs[Lookup Match Output].Columns[order_purchase_timestamp]" />
+                    <inputColumn
+                      refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="order_status"
+                      externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                      lineageId="Package\Staging_Payment_Fact\Lookup.Outputs[Lookup Match Output].Columns[order_status]" />
+                    <inputColumn
+                      refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_unique_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="customer_unique_id"
+                      externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
+                      lineageId="Package\Staging_Payment_Fact\Lookup 1.Outputs[Lookup Match Output].Columns[customer_unique_id]" />
+                    <inputColumn
+                      refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_zip_code_prefix]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="customer_zip_code_prefix"
+                      externalMetadataColumnId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
+                      lineageId="Package\Staging_Payment_Fact\Lookup 1.Outputs[Lookup Match Output].Columns[customer_zip_code_prefix]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2011,6 +2209,23 @@ where [refTable].[customer_id] = ?</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trancate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e12e08c4-cd58-4e41-a47e-991728c673dd}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trancate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7B2262EE-4F92-449E-922A-1512759B8C57}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [STG].[Order_Payment];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -2021,6 +2236,14 @@ where [refTable].[customer_id] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Dim Payment Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{25FA840B-5646-44B1-8288-93E88C444D25}"
+      DTS:From="Package\trancate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Staging_Payment_Fact" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2033,41 +2256,79 @@ where [refTable].[customer_id] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169,42"
+          Size="168.8,41.6"
           Id="Package\Dim Payment Fact"
-          TopLeft="509.666666666667,166.666666666667" />
+          TopLeft="522.166665983697,292.333332459463" />
         <NodeLayout
-          Size="193,42"
+          Size="186.4,41.6"
           Id="Package\Staging_Payment_Fact"
-          TopLeft="507.666666666667,66.6666666666667" />
+          TopLeft="476.833335017993,174.133332586024" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="604.166666666667,108.666666666667">
+          TopLeft="570.033335017993,215.733332586024">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10,58.0000000000003"
+              EndConnector="36.5333309657045,76.5999998734398"
               Start="0,0"
-              End="-10,50.5000000000003">
+              End="36.5333309657045,69.0999998734398">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.0000000000002" />
+                    End="0,34.2999999367199" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.0000000000002"
-                    Point2="0,29.0000000000002"
-                    Point3="-4,29.0000000000002" />
+                    Point1="0,34.2999999367199"
+                    Point2="0,38.2999999367199"
+                    Point3="4,38.2999999367199" />
                   <mssgle:LineSegment
-                    End="-6,29.0000000000002" />
+                    End="32.5333309657045,38.2999999367199" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6,29.0000000000002"
-                    Point2="-10,29.0000000000002"
-                    Point3="-10,33.0000000000002" />
+                    Point1="32.5333309657045,38.2999999367199"
+                    Point2="36.5333309657045,38.2999999367199"
+                    Point3="36.5333309657045,42.2999999367199" />
                   <mssgle:LineSegment
-                    End="-10,50.5000000000003" />
+                    End="36.5333309657045,69.0999998734398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\trancate"
+          TopLeft="527.666665573915,3.93333517147461" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="585.666665573915,45.5333351714746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.6333305559224,128.599997414549"
+              Start="0,0"
+              End="-15.6333305559224,121.099997414549">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.2999987072745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.2999987072745"
+                    Point2="0,64.2999987072745"
+                    Point3="-4,64.2999987072745" />
+                  <mssgle:LineSegment
+                    End="-11.6333305559224,64.2999987072745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.6333305559224,64.2999987072745"
+                    Point2="-15.6333305559224,64.2999987072745"
+                    Point3="-15.6333305559224,68.2999987072745" />
+                  <mssgle:LineSegment
+                    End="-15.6333305559224,121.099997414549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2085,45 +2346,51 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="124,42"
-          Id="Package\Dim Payment Fact\Lookup 1"
-          TopLeft="465,316" />
-        <NodeLayout
-          Size="157,42"
+          Size="152,41.6"
           Id="Package\Dim Payment Fact\OLE DB Source"
           TopLeft="444,15" />
         <NodeLayout
-          Size="115,42"
+          Size="115.2,41.6"
           Id="Package\Dim Payment Fact\Lookup"
           TopLeft="463,207" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Dim Payment Fact\Lookup 2"
+          TopLeft="465,428" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Dim Payment Fact\OLE DB Destination"
+          TopLeft="431,555" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Dim Payment Fact\Lookup 1"
+          TopLeft="465,316" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Dim Payment Fact\Derived Column"
+          TopLeft="445,109" />
         <EdgeLayout
-          Id="Package\Dim Payment Fact.Paths[Lookup Match Output]"
-          TopLeft="523.75,249">
+          Id="Package\Dim Payment Fact.Paths[OLE DB Source Output]"
+          TopLeft="522.1,56.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67"
+              EndConnector="0,52.4"
               Start="0,0"
-              End="0,59.5">
+              End="0,44.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.5" />
+                    End="0,44.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Dim Payment Fact\Lookup 2"
-          TopLeft="465,428" />
         <EdgeLayout
           Id="Package\Dim Payment Fact.Paths[Lookup Match Output1]"
           TopLeft="527,358">
@@ -2148,30 +2415,28 @@ where [refTable].[customer_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Dim Payment Fact\Derived Column"
-          TopLeft="445,109" />
         <EdgeLayout
-          Id="Package\Dim Payment Fact.Paths[OLE DB Source Output]"
-          TopLeft="523.25,57">
+          Id="Package\Dim Payment Fact.Paths[Lookup Match Output]"
+          TopLeft="523.75,249">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52"
+              EndConnector="0,67"
               Start="0,0"
-              End="0,44.5">
+              End="0,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.5" />
+                    End="0,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2193,63 +2458,90 @@ where [refTable].[customer_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-8,16.25,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="177,42"
-          Id="Package\Dim Payment Fact\OLE DB Destination"
-          TopLeft="431,555" />
+          Size="120.8,41.6"
+          Id="Package\Dim Payment Fact\Lookup 3"
+          TopLeft="698.333295178084,487.933329940306" />
         <EdgeLayout
           Id="Package\Dim Payment Fact.Paths[Lookup Match Output2]"
-          TopLeft="523.25,470">
+          TopLeft="589,448.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,85"
+              EndConnector="109.333295178084,59.9333299403059"
               Start="0,0"
-              End="0,77.5">
+              End="101.833295178084,59.9333299403059">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="50.666647589042,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.666647589042,0"
+                    Point2="54.666647589042,0"
+                    Point3="54.666647589042,4" />
+                  <mssgle:LineSegment
+                    End="54.666647589042,55.9333299403059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.666647589042,55.9333299403059"
+                    Point2="54.666647589042,59.9333299403059"
+                    Point3="58.666647589042,59.9333299403059" />
+                  <mssgle:LineSegment
+                    End="101.833295178084,59.9333299403059" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,32.9453125,96.3827734375,11.609375"
+              BoundingBox="6.47526087029198,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Payment Fact.Paths[Lookup Match Output3]"
+          TopLeft="758.733295178084,529.533329940306">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.333295178084,25.4666700596941"
+              Start="0,0"
+              End="-239.333295178084,17.9666700596941">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.73333502984707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.73333502984707"
+                    Point2="0,12.7333350298471"
+                    Point3="-4,12.7333350298471" />
+                  <mssgle:LineSegment
+                    End="-235.333295178084,12.7333350298471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.333295178084,12.7333350298471"
+                    Point2="-239.333295178084,12.7333350298471"
+                    Point3="-239.333295178084,16.7333350298471" />
+                  <mssgle:LineSegment
+                    End="-239.333295178084,17.9666700596941" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-167.858034307792,17.7333350298471,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\Lookup 1">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Location]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim Payment Fact\OLE DB Source">
     <Properties>
@@ -2279,7 +2571,66 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Payment Fact\Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Payment_Type]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Payment Fact\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Payment Fact\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2292,19 +2643,19 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Destination"
           TopLeft="392,488" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\Staging_Payment_Fact\Lookup 1"
           TopLeft="405,386" />
         <NodeLayout
-          Size="115,42"
+          Size="115.2,41.6"
           Id="Package\Staging_Payment_Fact\Lookup"
           TopLeft="395,258" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Source"
           TopLeft="369,141" />
         <EdgeLayout
@@ -2423,7 +2774,7 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2433,7 +2784,7 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2446,7 +2797,7 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2456,7 +2807,7 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2477,7 +2828,7 @@ where [refTable].[customer_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\Lookup 2">
+    design-time-name="Package\Dim Payment Fact\Lookup 3">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2487,7 +2838,7 @@ where [refTable].[customer_id] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Dim_Payment_Type]</Value>
+          type="q3:string">[dbo].[Dim_Customer]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2496,19 +2847,6 @@ where [refTable].[customer_id] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

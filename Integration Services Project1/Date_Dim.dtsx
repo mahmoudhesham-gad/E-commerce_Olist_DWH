@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Date_Dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{559E6D30-8379-4913-832A-9CA775FDCB9F}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{C19AC334-5FD9-4A0B-8AF3-91CE12D7B605}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9E67AF90-F866-4402-BF33-34E581B95BC6}"
-          SQLTask:SqlStatementSource="DECLARE @StartDate DATE = '1999-01-01';&#xA;DECLARE @EndDate DATE = '2049-01-01';&#xA;&#xA;-- Loop to insert dates one by one&#xA;WHILE @StartDate &lt;= @EndDate&#xA;BEGIN&#xA;    -- Check if the date already exists before inserting&#xA;    IF NOT EXISTS (SELECT 1 FROM Dim_Date WHERE date_sk = CAST(CONVERT(VARCHAR(8), @StartDate, 112) AS INT))&#xA;    BEGIN&#xA;        INSERT INTO Dim_Date (&#xA;            date_sk, &#xA;            full_date, &#xA;            year, &#xA;            quarter, &#xA;            month, &#xA;            day_of_week&#xA;        )&#xA;        VALUES (&#xA;            CAST(CONVERT(VARCHAR(8), @StartDate, 112) AS INT), -- date_sk format: YYYYMMDD&#xA;            @StartDate,                                        -- full_date&#xA;            YEAR(@StartDate),                                  -- year&#xA;            DATEPART(QUARTER, @StartDate),                     -- quarter&#xA;            MONTH(@StartDate),                                 -- month&#xA;            DATEPART(WEEKDAY, @StartDate)                      -- day_of_week&#xA;        );&#xA;    END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DECLARE @StartDate DATE = '1999-01-01';&#xA;DECLARE @EndDate DATE = '2049-01-01';&#xA;&#xA;-- Loop to insert dates one by one&#xA;WHILE @StartDate &lt;= @EndDate&#xA;BEGIN&#xA;    -- Check if the date already exists before inserting&#xA;    IF NOT EXISTS (SELECT 1 FROM Dim_Date WHERE date_sk = CAST(CONVERT(VARCHAR(8), @StartDate, 112) AS INT))&#xA;    BEGIN&#xA;        INSERT INTO Dim_Date (&#xA;            date_sk, &#xA;            full_date, &#xA;            year, &#xA;            quarter, &#xA;            month, &#xA;            day_of_week&#xA;        )&#xA;        VALUES (&#xA;            CAST(CONVERT(VARCHAR(8), @StartDate, 112) AS INT), -- date_sk format: YYYYMMDD&#xA;            @StartDate,                                        -- full_date&#xA;            YEAR(@StartDate),                                  -- year&#xA;            DATEPART(QUARTER, @StartDate),                     -- quarter&#xA;            MONTH(@StartDate),                                 -- month&#xA;            DATEPART(WEEKDAY, @StartDate)                      -- day_of_week&#xA;        );&#xA;    END;&#xA;&#xA;    -- Increment the date by 1 day&#xA;    SET @StartDate = DATEADD(DAY, 1, @StartDate);&#xA;END;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
