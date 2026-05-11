@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="payment_fact"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{23D57F1A-3E8B-4A81-B5E0-8D9DB076C508}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{00C018C6-AAF3-4B4B-9607-2B6DCCBD6F39}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1761,7 +1761,8 @@ where [refTable].[customer_id] = ?</property>
                       name="customer_unique_id" />
                     <externalMetadataColumn
                       refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="customer_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\Staging_Payment_Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_update]"
@@ -2036,14 +2037,14 @@ where [refTable].[customer_id] = ?</property>
         <NodeLayout
           Size="169,42"
           Id="Package\Dim Payment Fact"
-          TopLeft="510.666666666667,167.666666666667" />
+          TopLeft="509.666666666667,166.666666666667" />
         <NodeLayout
           Size="193,42"
           Id="Package\Staging_Payment_Fact"
-          TopLeft="508.666666666667,67.6666666666667" />
+          TopLeft="507.666666666667,66.6666666666667" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="605.166666666667,109.666666666667">
+          TopLeft="604.166666666667,108.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2054,17 +2055,17 @@ where [refTable].[customer_id] = ?</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.0000000000001" />
+                    End="0,25.0000000000002" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.0000000000001"
-                    Point2="0,29.0000000000001"
-                    Point3="-4,29.0000000000001" />
+                    Point1="0,25.0000000000002"
+                    Point2="0,29.0000000000002"
+                    Point3="-4,29.0000000000002" />
                   <mssgle:LineSegment
-                    End="-6,29.0000000000001" />
+                    End="-6,29.0000000000002" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6,29.0000000000001"
-                    Point2="-10,29.0000000000001"
-                    Point3="-10,33.0000000000001" />
+                    Point1="-6,29.0000000000002"
+                    Point2="-10,29.0000000000002"
+                    Point3="-10,33.0000000000002" />
                   <mssgle:LineSegment
                     End="-10,50.5000000000003" />
                 </mssgle:SegmentCollection>

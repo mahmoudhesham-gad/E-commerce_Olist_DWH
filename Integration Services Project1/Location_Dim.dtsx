@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{62575D56-6014-4A47-93CE-37317BC5F93C}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{F8BDADBB-2477-4083-A2AA-5FABD99952AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -636,7 +636,8 @@
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                     <inputColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_zip_code_prefix]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="geolocation_zip_code_prefix"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_zip_code_prefix]"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]" />
@@ -654,7 +655,8 @@
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_lng]" />
                     <inputColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_city]"
-                      cachedDataType="nText"
+                      cachedDataType="wstr"
+                      cachedLength="100"
                       cachedName="geolocation_city"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_city]"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]" />
@@ -676,7 +678,8 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="geolocation_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
@@ -688,7 +691,8 @@
                       name="geolocation_lng" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="geolocation_city" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_state]"
@@ -805,10 +809,11 @@ WHERE last_update &gt; ?</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      length="50"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
                       name="geolocation_zip_code_prefix"
                       truncationRowDisposition="FailComponent" />
@@ -832,10 +837,11 @@ WHERE last_update &gt; ?</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      length="100"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
                       name="geolocation_city"
                       truncationRowDisposition="FailComponent" />
@@ -858,7 +864,8 @@ WHERE last_update &gt; ?</property>
                       name="last_update" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="geolocation_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
@@ -870,7 +877,8 @@ WHERE last_update &gt; ?</property>
                       name="geolocation_lng" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="geolocation_city" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
@@ -886,7 +894,8 @@ WHERE last_update &gt; ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
                       name="geolocation_zip_code_prefix" />
                     <outputColumn
@@ -901,7 +910,8 @@ WHERE last_update &gt; ?</property>
                       name="geolocation_lng" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
                       name="geolocation_city" />
                     <outputColumn
