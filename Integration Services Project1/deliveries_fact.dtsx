@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{CE6D1F96-E22B-4927-967E-833D5982FE79}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{8882527F-BDA8-4C37-A23A-5C97F63283CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1118,7 +1118,7 @@ where [refTable].[customer_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Staging_Payment_Fact\184:invalid};</property>
+                  name="ParameterMap">#{Package\Staging_Payment_Fact\206:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2105,19 +2105,19 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168.8,41.6"
+          Size="169,42"
           Id="Package\Dim Payment Fact"
           TopLeft="246.666666666667,255.166666666667" />
         <NodeLayout
-          Size="175.2,41.6"
+          Size="175,42"
           Id="Package\get last estract date"
           TopLeft="244.5,83.5" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Staging_Payment_Fact"
           TopLeft="235.5,168" />
         <NodeLayout
-          Size="119.2,41.6"
+          Size="119,42"
           Id="Package\trancate"
           TopLeft="271,0" />
         <EdgeLayout
@@ -2361,31 +2361,31 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="167.2,41.6"
+          Size="167,42"
           Id="Package\Staging_Payment_Fact\Derived Column 1"
           TopLeft="387.80303030303,135.909090909091" />
         <NodeLayout
-          Size="124,41.6"
+          Size="124,42"
           Id="Package\Staging_Payment_Fact\Lookup 1"
           TopLeft="837.818181818182,364.181818181818" />
         <NodeLayout
-          Size="272.8,41.6"
+          Size="273,42"
           Id="Package\Staging_Payment_Fact\order_delivered_customer_date_lookup"
           TopLeft="344.909090909091,363.727272727273" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Staging_Payment_Fact\OLE DB Destination"
           TopLeft="812.636363636364,144.272727272727" />
         <NodeLayout
-          Size="158.4,41.6"
+          Size="158,42"
           Id="Package\Staging_Payment_Fact\Derived Column"
           TopLeft="834.272727272727,247.454545454545" />
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Staging_Payment_Fact\OLE DB Source"
           TopLeft="395.530303030303,54.1666666666667" />
         <NodeLayout
-          Size="222.4,41.6"
+          Size="222,42"
           Id="Package\Staging_Payment_Fact\order_purchase_date_lookup"
           TopLeft="347,243.454545454545" />
         <EdgeLayout
@@ -2430,7 +2430,7 @@ where [refTable].[full_date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="49.1445063920455,5,96.3827734375,11.609375"
+              BoundingBox="49.1445063920455,5,114.120078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2466,7 +2466,7 @@ where [refTable].[full_date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.3554936079545,44.136363636364,96.3827734375,11.609375"
+              BoundingBox="-45.3554936079545,44.136363636364,114.120078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2606,7 +2606,7 @@ where [refTable].[full_date] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
