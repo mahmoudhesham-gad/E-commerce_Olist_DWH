@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="payment_fact"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{688D2693-4D90-4105-8C75-74E795252BC6}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{23D57F1A-3E8B-4A81-B5E0-8D9DB076C508}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
