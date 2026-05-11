@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{9057D9DF-CB79-4CCA-8562-9F9C40AC59AB}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{F2D48E35-A39B-4C98-884C-6F0A48805E9F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -384,7 +384,9 @@ where [refTable].[payment_type_name] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT [payment_type]
+
+FROM [dbo].[olist_order_payments_dataset];</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -401,7 +403,7 @@ where [refTable].[payment_type_name] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -434,29 +436,10 @@ where [refTable].[payment_type_name] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
-                      dataType="wstr"
-                      length="50"
-                      name="order_id" />
-                    <externalMetadataColumn
-                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_sequential]"
-                      dataType="i4"
-                      name="payment_sequential" />
-                    <externalMetadataColumn
                       refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_type]"
                       dataType="wstr"
                       length="50"
                       name="payment_type" />
-                    <externalMetadataColumn
-                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_installments]"
-                      dataType="i4"
-                      name="payment_installments" />
-                    <externalMetadataColumn
-                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
-                      dataType="numeric"
-                      name="payment_value"
-                      precision="18"
-                      scale="2" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -531,14 +514,18 @@ where [refTable].[payment_type_name] = ?</property>
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\LoadPymentTypes\OLE DB Destination"
-          TopLeft="694,510" />
+          TopLeft="694.833333287802,510" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\LoadPymentTypes\OLE DB Source"
+          TopLeft="719.166627373134,274.733331422872" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\LoadPymentTypes\Lookup"
           TopLeft="726,404" />
         <EdgeLayout
           Id="Package\LoadPymentTypes.Paths[Lookup No Match Output]"
-          TopLeft="782.4,445.6">
+          TopLeft="782.816666643901,445.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -560,10 +547,6 @@ where [refTable].[payment_type_name] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\LoadPymentTypes\OLE DB Source"
-          TopLeft="719.166627373134,274.733331422872" />
         <EdgeLayout
           Id="Package\LoadPymentTypes.Paths[OLE DB Source Output]"
           TopLeft="795.166627373134,316.333331422872">
@@ -615,6 +598,19 @@ where [refTable].[payment_type_name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\LoadPymentTypes\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\LoadPymentTypes\Lookup">
     <Properties>
       <Property>
@@ -630,23 +626,10 @@ where [refTable].[payment_type_name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadPymentTypes\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

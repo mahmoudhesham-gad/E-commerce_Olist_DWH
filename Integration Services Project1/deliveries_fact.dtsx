@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{6E1BCE85-EAE9-4546-ABA9-4CCF19CE4606}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{7F048FC3-5F09-4C41-BDDB-82FACDD461F3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1118,7 +1118,7 @@ where [refTable].[customer_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Staging_Payment_Fact\205:invalid};</property>
+                  name="ParameterMap">#{Package\Staging_Payment_Fact\204:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2130,24 +2130,28 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169,42"
+          Size="168.8,41.6"
           Id="Package\Dim Payment Fact"
-          TopLeft="246.666666666667,255.166666666667" />
+          TopLeft="516.666651914518,368.699999210504" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\get last estract date"
-          TopLeft="244.5,83.5" />
+          TopLeft="514.499985247851,197.033332543837" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Staging_Payment_Fact"
-          TopLeft="235.5,168" />
+          TopLeft="505.499985247851,281.533332543837" />
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\trancate"
-          TopLeft="271,0" />
+          TopLeft="540.999985247851,113.533332543837" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\update conf table"
+          TopLeft="526.499985247851,457.699999210504" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="331.583333333333,210">
+          TopLeft="601.583318581184,323.533332543837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2169,7 +2173,7 @@ where [refTable].[full_date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="331.25,42">
+          TopLeft="601.249985247851,155.533332543837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2191,7 +2195,7 @@ where [refTable].[full_date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="332,125.5">
+          TopLeft="601.999985247851,239.033332543837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2211,13 +2215,9 @@ where [refTable].[full_date] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\update conf table"
-          TopLeft="256.5,344.166666666667" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="334.583333333333,297.166666666667">
+          TopLeft="604.583318581184,410.699999210504">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2412,47 +2412,47 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="167,42"
+          Size="161.6,41.6"
           Id="Package\Staging_Payment_Fact\Derived Column 1"
           TopLeft="387.80303030303,135.909090909091" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\Staging_Payment_Fact\Lookup 1"
           TopLeft="837.818181818182,364.181818181818" />
         <NodeLayout
-          Size="273,42"
+          Size="272.8,41.6"
           Id="Package\Staging_Payment_Fact\order_delivered_customer_date_lookup"
           TopLeft="344.909090909091,363.727272727273" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Destination"
           TopLeft="812.636363636364,144.272727272727" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Staging_Payment_Fact\Derived Column"
           TopLeft="834.272727272727,247.454545454545" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Source"
           TopLeft="395.530303030303,54.1666666666667" />
         <NodeLayout
-          Size="222,42"
+          Size="222.4,41.6"
           Id="Package\Staging_Payment_Fact\order_purchase_date_lookup"
           TopLeft="347,243.454545454545" />
         <EdgeLayout
           Id="Package\Staging_Payment_Fact.Paths[OLE DB Source Output]"
-          TopLeft="472.666666666667,96.1666666666667">
+          TopLeft="471.266666666667,95.7666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.7424242424242"
+              EndConnector="0,40.1424242424243"
               Start="0,0"
-              End="0,32.2424242424242">
+              End="0,32.6424242424243">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.2424242424242" />
+                    End="0,32.6424242424243" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2481,7 +2481,7 @@ where [refTable].[full_date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="49.1445063920455,5,114.120078125,16"
+              BoundingBox="49.1445063920455,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2517,7 +2517,7 @@ where [refTable].[full_date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.3554936079545,44.136363636364,114.120078125,16"
+              BoundingBox="-45.3554936079545,44.136363636364,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2559,36 +2559,38 @@ where [refTable].[full_date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Staging_Payment_Fact.Paths[Derived Column Output1]"
-          TopLeft="471.30303030303,177.909090909091">
+          TopLeft="468.60303030303,177.509090909091">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.30303030303,65.545454545454"
+              EndConnector="-10.4030303030301,65.945454545454"
               Start="0,0"
-              End="-13.30303030303,58.045454545454">
+              End="-10.4030303030301,58.445454545454">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.772727272727" />
+                    End="0,28.972727272727" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.772727272727"
-                    Point2="0,32.772727272727"
-                    Point3="-4,32.772727272727" />
+                    Point1="0,28.972727272727"
+                    Point2="0,32.972727272727"
+                    Point3="-4,32.972727272727" />
                   <mssgle:LineSegment
-                    End="-9.30303030303003,32.772727272727" />
+                    End="-6.40303030303005,32.972727272727" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9.30303030303003,32.772727272727"
-                    Point2="-13.30303030303,32.772727272727"
-                    Point3="-13.30303030303,36.772727272727" />
+                    Point1="-6.40303030303005,32.972727272727"
+                    Point2="-10.4030303030301,32.972727272727"
+                    Point3="-10.4030303030301,36.972727272727" />
                   <mssgle:LineSegment
-                    End="-13.30303030303,58.045454545454" />
+                    End="-10.4030303030301,58.445454545454" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-13.201515151515,37.972727272727,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

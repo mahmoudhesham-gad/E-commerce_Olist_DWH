@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Customer_Dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{F125C36B-3830-4F9C-84F3-FCCC00F29201}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{2E4D552F-231D-4F62-BCDC-29169B739A79}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -333,8 +333,7 @@
                       name="customer_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
-                      dataType="wstr"
-                      length="100"
+                      dataType="nText"
                       name="customer_city" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
@@ -1090,13 +1089,13 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\load to dimnsion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\load to dimnsion\OLE DB Source"
           TopLeft="370,234" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\load to dimnsion\OLE DB Destination"
           TopLeft="360,345" />
         <EdgeLayout
@@ -1118,9 +1117,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
