@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{360FC6D5-7C1B-451D-871E-936F810013BA}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{CCFE18C0-9C41-46F1-840F-B7F4D2EDD059}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -973,7 +973,7 @@ where [refTable].[product_bk] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Dim Payment Fact\192:invalid};</property>
+                  name="ParameterMap">#{Package\Dim Payment Fact\204:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2547,6 +2547,23 @@ where [refTable].[order_id] = ?</property>
           SQLTask:SqlStatementSource="TRUNCATE TABLE STG.Fact_Sales;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\update conf table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f7bcf90e-68e9-40de-b2a9-fd33c0c85efc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="update conf table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1E3512F9-45ED-444B-8156-EBEC7D617AB5}"
+          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Fact_Sales';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -2573,6 +2590,14 @@ where [refTable].[order_id] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Staging_Payment_Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{098E6F86-13F9-4787-B6AC-F4646A81C920}"
+      DTS:From="Package\Dim Payment Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\update conf table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2585,21 +2610,21 @@ where [refTable].[order_id] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168.8,41.6"
+          Size="169,42"
           Id="Package\Dim Payment Fact"
           TopLeft="411.166666666667,294.5" />
         <NodeLayout
-          Size="175.2,41.6"
+          Size="175,42"
           Id="Package\get last estract date"
           TopLeft="410.333333333333,122.166666666667" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Staging_Payment_Fact"
           TopLeft="401.333333333333,196.666666666667" />
         <NodeLayout
-          Size="119.2,41.6"
+          Size="119,42"
           Id="Package\trancate"
           TopLeft="436.833333333333,38.6666666666667" />
         <EdgeLayout
@@ -2660,6 +2685,32 @@ where [refTable].[order_id] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\update conf table"
+          TopLeft="414.333333333333,385.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="495.75,336.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2886,7 +2937,7 @@ where [refTable].[order_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
