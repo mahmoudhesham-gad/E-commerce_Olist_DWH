@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{F8BDADBB-2477-4083-A2AA-5FABD99952AC}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{54E0CD30-4E31-42FF-BA4F-88D149798959}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -175,13 +175,15 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_zip_code_prefix]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="geolocation_zip_code_prefix"
                       externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zip_code_prefix]"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]" />
                     <inputColumn
                       refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geolocation_city]"
-                      cachedDataType="nText"
+                      cachedDataType="wstr"
+                      cachedLength="100"
                       cachedName="geolocation_city"
                       externalMetadataColumnId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]" />
@@ -202,11 +204,12 @@
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zip_code_prefix]"
                       dataType="wstr"
-                      length="10"
+                      length="50"
                       name="zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="city" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
@@ -304,10 +307,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
+                      length="50"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_zip_code_prefix]"
                       name="geolocation_zip_code_prefix"
                       truncationRowDisposition="FailComponent" />
@@ -331,10 +335,11 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
+                      length="100"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].Columns[geolocation_city]"
                       name="geolocation_city"
                       truncationRowDisposition="FailComponent" />
@@ -375,7 +380,8 @@
                       name="create_timestamp" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="geolocation_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
@@ -387,7 +393,8 @@
                       name="geolocation_lng" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="geolocation_city" />
                     <externalMetadataColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geolocation_state]"
@@ -407,7 +414,8 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_zip_code_prefix]"
                       name="geolocation_zip_code_prefix" />
                     <outputColumn
@@ -422,7 +430,8 @@
                       name="geolocation_lng" />
                     <outputColumn
                       refId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       lineageId="Package\load to dimnsion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geolocation_city]"
                       name="geolocation_city" />
                     <outputColumn
@@ -1040,23 +1049,23 @@ WHERE last_update &gt; ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\get last estract date"
           TopLeft="382,134" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\load to dimnsion"
           TopLeft="389,324" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Load to stage"
           TopLeft="397.5,228.5" />
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\trancate"
           TopLeft="408,50" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\update conf table"
           TopLeft="384,407" />
         <EdgeLayout
@@ -1156,11 +1165,11 @@ WHERE last_update &gt; ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\load to dimnsion\OLE DB Source"
           TopLeft="370,234" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\load to dimnsion\OLE DB Destination"
           TopLeft="360,345" />
         <EdgeLayout

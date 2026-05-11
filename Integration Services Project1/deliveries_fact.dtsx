@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{DA13E87D-E4AC-42F0-BFCF-10DEF10F2FE9}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{CE6D1F96-E22B-4927-967E-833D5982FE79}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1118,7 +1118,7 @@ where [refTable].[customer_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Staging_Payment_Fact\221:invalid};</property>
+                  name="ParameterMap">#{Package\Staging_Payment_Fact\184:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2105,19 +2105,19 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169,42"
+          Size="168.8,41.6"
           Id="Package\Dim Payment Fact"
           TopLeft="246.666666666667,255.166666666667" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\get last estract date"
           TopLeft="244.5,83.5" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Staging_Payment_Fact"
           TopLeft="235.5,168" />
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\trancate"
           TopLeft="271,0" />
         <EdgeLayout
@@ -2284,17 +2284,17 @@ where [refTable].[full_date] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\Lookup 1">
+    design-time-name="Package\Dim Payment Fact\Lookup 2">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Dim_Location]</Value>
+          type="q3:string">[dbo].[Dim_Customer]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2320,22 +2320,35 @@ where [refTable].[full_date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\Lookup 2">
+    design-time-name="Package\Dim Payment Fact\OLE DB Destination">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Customer]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Payment Fact\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2348,33 +2361,115 @@ where [refTable].[full_date] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="222,42"
-          Id="Package\Staging_Payment_Fact\order_purchase_date_lookup"
-          TopLeft="347,243.454545454545" />
-        <NodeLayout
-          Size="167,42"
+          Size="167.2,41.6"
           Id="Package\Staging_Payment_Fact\Derived Column 1"
           TopLeft="387.80303030303,135.909090909091" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\Staging_Payment_Fact\Lookup 1"
           TopLeft="837.818181818182,364.181818181818" />
         <NodeLayout
-          Size="273,42"
+          Size="272.8,41.6"
           Id="Package\Staging_Payment_Fact\order_delivered_customer_date_lookup"
           TopLeft="344.909090909091,363.727272727273" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Destination"
           TopLeft="812.636363636364,144.272727272727" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Staging_Payment_Fact\Derived Column"
           TopLeft="834.272727272727,247.454545454545" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Staging_Payment_Fact\OLE DB Source"
           TopLeft="395.530303030303,54.1666666666667" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Staging_Payment_Fact\order_purchase_date_lookup"
+          TopLeft="347,243.454545454545" />
+        <EdgeLayout
+          Id="Package\Staging_Payment_Fact.Paths[OLE DB Source Output]"
+          TopLeft="472.666666666667,96.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7424242424242"
+              Start="0,0"
+              End="0,32.2424242424242">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2424242424242" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging_Payment_Fact.Paths[Lookup Match Output2]"
+          TopLeft="617.909090909091,384.954545454545">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="219.909090909091,0"
+              Start="0,0"
+              End="212.409090909091,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="212.409090909091,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="49.1445063920455,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging_Payment_Fact.Paths[Lookup Match Output1]"
+          TopLeft="458,285.454545454545">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.409090909091,78.2727272727279"
+              Start="0,0"
+              End="23.409090909091,70.7727272727279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.136363636364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.136363636364"
+                    Point2="0,39.136363636364"
+                    Point3="4,39.136363636364" />
+                  <mssgle:LineSegment
+                    End="19.409090909091,39.136363636364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.409090909091,39.136363636364"
+                    Point2="23.409090909091,39.136363636364"
+                    Point3="23.409090909091,43.136363636364" />
+                  <mssgle:LineSegment
+                    End="23.409090909091,70.7727272727279" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-45.3554936079545,44.136363636364,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Staging_Payment_Fact.Paths[Lookup Match Output]"
           TopLeft="899.818181818182,364.181818181818">
@@ -2479,114 +2574,9 @@ where [refTable].[full_date] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Staging_Payment_Fact.Paths[OLE DB Source Output]"
-          TopLeft="472.666666666667,96.1666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.7424242424242"
-              Start="0,0"
-              End="0,32.2424242424242">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.2424242424242" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Staging_Payment_Fact.Paths[Lookup Match Output1]"
-          TopLeft="458,285.454545454545">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23.409090909091,78.2727272727279"
-              Start="0,0"
-              End="23.409090909091,70.7727272727279">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.136363636364" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.136363636364"
-                    Point2="0,39.136363636364"
-                    Point3="4,39.136363636364" />
-                  <mssgle:LineSegment
-                    End="19.409090909091,39.136363636364" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.409090909091,39.136363636364"
-                    Point2="23.409090909091,39.136363636364"
-                    Point3="23.409090909091,43.136363636364" />
-                  <mssgle:LineSegment
-                    End="23.409090909091,70.7727272727279" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-45.3554936079545,44.136363636364,114.120078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Staging_Payment_Fact.Paths[Lookup Match Output2]"
-          TopLeft="617.909090909091,384.954545454545">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="219.909090909091,0"
-              Start="0,0"
-              End="212.409090909091,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="212.409090909091,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="49.1445063920455,5,114.120078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging_Payment_Fact\order_purchase_date_lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Date]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Staging_Payment_Fact\Lookup 1">
     <Properties>
@@ -2655,15 +2645,25 @@ where [refTable].[full_date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Payment Fact\OLE DB Destination">
+    design-time-name="Package\Staging_Payment_Fact\order_purchase_date_lookup">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

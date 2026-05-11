@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Customer_Dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{2FD779A6-BECC-45FC-852A-16404F4B68F8}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{F125C36B-3830-4F9C-84F3-FCCC00F29201}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -578,7 +578,8 @@
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
                     <inputColumn
                       refId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_city]"
-                      cachedDataType="nText"
+                      cachedDataType="wstr"
+                      cachedLength="100"
                       cachedName="customer_city"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]" />
@@ -759,10 +760,11 @@ WHERE last_update &gt; ?</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]"
-                      dataType="nText"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
+                      length="100"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_city]"
                       name="customer_city"
                       truncationRowDisposition="FailComponent" />
@@ -805,7 +807,8 @@ WHERE last_update &gt; ?</property>
                       name="customer_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="customer_city" />
                     <externalMetadataColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
@@ -843,7 +846,8 @@ WHERE last_update &gt; ?</property>
                       name="customer_zip_code_prefix" />
                     <outputColumn
                       refId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_city]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       lineageId="Package\Load to stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_city]"
                       name="customer_city" />
                     <outputColumn
@@ -972,23 +976,23 @@ WHERE last_update &gt; ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\get last estract date"
           TopLeft="463,134" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\load to dimnsion"
           TopLeft="470,324" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Load to stage"
           TopLeft="478.5,228.5" />
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\trancate"
           TopLeft="489,50" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\update conf table"
           TopLeft="465,407" />
         <EdgeLayout
@@ -1152,17 +1156,17 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\Load to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Load to stage\OLE DB Destination"
           TopLeft="656,346" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Load to stage\Derived Column"
           TopLeft="664,245" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Load to stage\OLE DB Source"
           TopLeft="690,134" />
         <EdgeLayout
@@ -1196,9 +1200,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.75,39.5,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1220,9 +1222,7 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,17.75,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

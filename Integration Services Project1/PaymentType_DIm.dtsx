@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{A33CD790-5A7E-4E75-AFEA-F38CE4B507E7}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{9057D9DF-CB79-4CCA-8562-9F9C40AC59AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -133,7 +133,7 @@ where [refTable].[payment_type_name] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="payment_type_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="payment_type_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="payment_type_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="payment_type_name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -163,8 +163,7 @@ where [refTable].[payment_type_name] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\LoadPymentTypes\Lookup.Inputs[Lookup Input].Columns[payment_type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="payment_type"
                       lineageId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_type]">
@@ -193,8 +192,7 @@ where [refTable].[payment_type_name] = ?</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\LoadPymentTypes\Lookup.Outputs[Lookup Match Output].Columns[payment_type_name]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Copy Column"
                       length="50"
                       lineageId="Package\LoadPymentTypes\Lookup.Outputs[Lookup Match Output].Columns[payment_type_name]"
@@ -316,8 +314,7 @@ where [refTable].[payment_type_name] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\LoadPymentTypes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[payment_type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="payment_type"
                       externalMetadataColumnId="Package\LoadPymentTypes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_type_name]"
@@ -331,8 +328,7 @@ where [refTable].[payment_type_name] = ?</property>
                       name="payment_type_sk" />
                     <externalMetadataColumn
                       refId="Package\LoadPymentTypes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_type_name]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="payment_type_name" />
                   </externalMetadataColumns>
@@ -379,7 +375,7 @@ where [refTable].[payment_type_name] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[olist_order_payments_dataset]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -388,8 +384,7 @@ where [refTable].[payment_type_name] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT CAST([payment_type] AS VARCHAR(50)) AS [payment_type]
-FROM [olist_order_payments_dataset]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -406,7 +401,7 @@ FROM [olist_order_payments_dataset]</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">2</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -427,8 +422,7 @@ FROM [olist_order_payments_dataset]</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_type]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_type]"
@@ -440,11 +434,29 @@ FROM [olist_order_payments_dataset]</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_sequential]"
+                      dataType="i4"
+                      name="payment_sequential" />
+                    <externalMetadataColumn
                       refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_type]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="payment_type" />
+                    <externalMetadataColumn
+                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_installments]"
+                      dataType="i4"
+                      name="payment_installments" />
+                    <externalMetadataColumn
+                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
+                      dataType="numeric"
+                      name="payment_value"
+                      precision="18"
+                      scale="2" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -452,13 +464,6 @@ FROM [olist_order_payments_dataset]</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[payment_type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[payment_type]"
-                      name="payment_type" />
                     <outputColumn
                       refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -471,6 +476,12 @@ FROM [olist_order_payments_dataset]</property>
                       lineageId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[payment_type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\LoadPymentTypes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[payment_type]"
+                      name="payment_type" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -506,7 +517,7 @@ FROM [olist_order_payments_dataset]</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\LoadPymentTypes"
           TopLeft="566,359" />
       </GraphLayout>
@@ -518,27 +529,67 @@ FROM [olist_order_payments_dataset]</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="115,42"
+          Size="176.8,41.6"
+          Id="Package\LoadPymentTypes\OLE DB Destination"
+          TopLeft="694,510" />
+        <NodeLayout
+          Size="112.8,41.6"
           Id="Package\LoadPymentTypes\Lookup"
           TopLeft="726,404" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\LoadPymentTypes\OLE DB Source"
-          TopLeft="704,277" />
         <EdgeLayout
-          Id="Package\LoadPymentTypes.Paths[OLE DB Source Output]"
-          TopLeft="783,319">
+          Id="Package\LoadPymentTypes.Paths[Lookup No Match Output]"
+          TopLeft="782.4,445.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,85"
+              EndConnector="0,64.3999999999999"
               Start="0,0"
-              End="0,77.5">
+              End="0,56.8999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="0,56.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,22.6453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\LoadPymentTypes\OLE DB Source"
+          TopLeft="719.166627373134,274.733331422872" />
+        <EdgeLayout
+          Id="Package\LoadPymentTypes.Paths[OLE DB Source Output]"
+          TopLeft="795.166627373134,316.333331422872">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.7666273731343,87.6666685771279"
+              Start="0,0"
+              End="-12.7666273731343,80.1666685771279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8333342885639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.8333342885639"
+                    Point2="0,43.8333342885639"
+                    Point3="-4,43.8333342885639" />
+                  <mssgle:LineSegment
+                    End="-8.76662737313427,43.8333342885639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.76662737313427,43.8333342885639"
+                    Point2="-12.7666273731343,43.8333342885639"
+                    Point3="-12.7666273731343,47.8333342885639" />
+                  <mssgle:LineSegment
+                    End="-12.7666273731343,80.1666685771279" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -547,37 +598,22 @@ FROM [olist_order_payments_dataset]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\LoadPymentTypes\OLE DB Destination"
-          TopLeft="694,510" />
-        <EdgeLayout
-          Id="Package\LoadPymentTypes.Paths[Lookup No Match Output]"
-          TopLeft="783,446">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,22.4453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadPymentTypes\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LoadPymentTypes\Lookup">
     <Properties>
@@ -594,7 +630,7 @@ FROM [olist_order_payments_dataset]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -603,14 +639,6 @@ FROM [olist_order_payments_dataset]</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LoadPymentTypes\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadPymentTypes\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
