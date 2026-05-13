@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{077AF133-4A69-4B1B-B5AD-8D6FFB1872A7}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{EECF63E2-F780-4376-952E-2AD1F6C3F51D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1232,7 +1232,7 @@ WHERE last_update &gt; ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BA6B4377-3554-40C5-AB3E-4DBB21E708C0}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Product';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT 1 FROM STG.etl_watermark WHERE table_name = 'Product')&#xA;BEGIN&#xA;    UPDATE STG.etl_watermark&#xA;    SET last_extract_date = GETDATE()&#xA;    WHERE table_name = 'Product';&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;    INSERT INTO STG.etl_watermark (table_name, last_extract_date)&#xA;    VALUES ('Product', GETDATE());&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1397,15 +1397,15 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\load to dimnsion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="177,42"
-          Id="Package\load to dimnsion\OLE DB Destination"
-          TopLeft="360,345" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\load to dimnsion\OLE DB Source"
           TopLeft="370,234" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\load to dimnsion\OLE DB Destination"
+          TopLeft="360,345" />
         <EdgeLayout
           Id="Package\load to dimnsion.Paths[OLE DB Source Output]"
           TopLeft="448.5,276">
@@ -1425,7 +1425,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1461,7 +1463,7 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\Load to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177,42"
           Id="Package\Load to stage\OLE DB Destination"
@@ -1505,7 +1507,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1527,7 +1531,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

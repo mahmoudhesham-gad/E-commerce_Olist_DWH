@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{3C3BD995-D086-4268-AEFC-9D503DC7AC33}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{42FEAD37-381F-471E-8BB1-0F0BC678B402}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -973,7 +973,7 @@ where [refTable].[product_bk] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Dim Payment Fact\191:invalid};</property>
+                  name="ParameterMap">#{Package\Dim Payment Fact\203:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2560,7 +2560,7 @@ where [refTable].[order_id] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{1E3512F9-45ED-444B-8156-EBEC7D617AB5}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Fact_Sales';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT 1 FROM STG.etl_watermark WHERE table_name = 'Fact_Sales')&#xA;BEGIN&#xA;    UPDATE STG.etl_watermark&#xA;    SET last_extract_date = GETDATE()&#xA;    WHERE table_name = 'Fact_Sales';&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;    INSERT INTO STG.etl_watermark (table_name, last_extract_date)&#xA;    VALUES ('Fact_Sales', GETDATE());&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2817,7 +2817,9 @@ where [refTable].[order_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3137,7 +3139,9 @@ where [refTable].[order_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3171,7 +3175,9 @@ where [refTable].[order_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3205,7 +3211,9 @@ where [refTable].[order_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

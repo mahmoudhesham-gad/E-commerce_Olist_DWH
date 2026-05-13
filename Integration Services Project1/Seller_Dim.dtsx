@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Seller_Dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{EBA4D71D-F321-4FA9-875B-84A65CF7BBF3}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{0D35B614-7064-41EA-BC43-23A41709C83E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -970,7 +970,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C4D51B04-2663-4689-B057-B251C625B597}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Seller';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT 1 FROM STG.etl_watermark WHERE table_name = 'Seller')&#xA;BEGIN&#xA;    UPDATE STG.etl_watermark&#xA;    SET last_extract_date = GETDATE()&#xA;    WHERE table_name = 'Seller';&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;    INSERT INTO STG.etl_watermark (table_name, last_extract_date)&#xA;    VALUES ('Seller', GETDATE());&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

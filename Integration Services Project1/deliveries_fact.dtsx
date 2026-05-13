@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{7F048FC3-5F09-4C41-BDDB-82FACDD461F3}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{4EA05D77-0228-43A5-985F-CE3BB049E4E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1118,7 +1118,7 @@ where [refTable].[customer_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Staging_Payment_Fact\204:invalid};</property>
+                  name="ParameterMap">#{Package\Staging_Payment_Fact\184:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2079,7 +2079,7 @@ where [refTable].[full_date] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{93FBCB49-448D-4521-8086-A01D51CCEFF2}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Delivery_Fact';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT 1 FROM STG.etl_watermark WHERE table_name = 'Delivery_Fact')&#xA;BEGIN&#xA;    UPDATE STG.etl_watermark&#xA;    SET last_extract_date = GETDATE()&#xA;    WHERE table_name = 'Delivery_Fact';&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;    INSERT INTO STG.etl_watermark (table_name, last_extract_date)&#xA;    VALUES ('Delivery_Fact', GETDATE());&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2146,7 +2146,7 @@ where [refTable].[full_date] = ?</property>
           Id="Package\trancate"
           TopLeft="540.999985247851,113.533332543837" />
         <NodeLayout
-          Size="163.2,41.6"
+          Size="158.4,41.6"
           Id="Package\update conf table"
           TopLeft="526.499985247851,457.699999210504" />
         <EdgeLayout
@@ -2217,18 +2217,18 @@ where [refTable].[full_date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="604.583318581184,410.699999210504">
+          TopLeft="603.383318581185,410.299999210504">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="0,47.4"
               Start="0,0"
-              End="0,39.5">
+              End="0,39.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,39.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2247,16 +2247,20 @@ where [refTable].[full_date] = ?</property>
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="124,42"
-          Id="Package\Dim Payment Fact\Lookup 1"
-          TopLeft="484,205" />
+          Id="Package\Dim Payment Fact\Lookup 2"
+          TopLeft="484,317" />
         <NodeLayout
           Size="157,42"
           Id="Package\Dim Payment Fact\OLE DB Source"
           TopLeft="464,52" />
         <NodeLayout
+          Size="177,42"
+          Id="Package\Dim Payment Fact\OLE DB Destination"
+          TopLeft="456,426" />
+        <NodeLayout
           Size="124,42"
-          Id="Package\Dim Payment Fact\Lookup 2"
-          TopLeft="484,317" />
+          Id="Package\Dim Payment Fact\Lookup 1"
+          TopLeft="484,205" />
         <EdgeLayout
           Id="Package\Dim Payment Fact.Paths[OLE DB Source Output]"
           TopLeft="544.25,94">
@@ -2276,7 +2280,33 @@ where [refTable].[full_date] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Payment Fact.Paths[Lookup Match Output1]"
+          TopLeft="545.25,359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2300,34 +2330,6 @@ where [refTable].[full_date] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,25.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim Payment Fact\OLE DB Destination"
-          TopLeft="456,426" />
-        <EdgeLayout
-          Id="Package\Dim Payment Fact.Paths[Lookup Match Output1]"
-          TopLeft="545.25,359">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67"
-              Start="0,0"
-              End="0,59.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2458,7 +2460,9 @@ where [refTable].[full_date] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2624,7 +2628,9 @@ where [refTable].[full_date] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

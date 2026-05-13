@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{54E0CD30-4E31-42FF-BA4F-88D149798959}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{5266363D-F7C7-4ADC-B3A5-5672B4E1A0F3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -998,7 +998,7 @@ WHERE last_update &gt; ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{906C5F56-17CA-43C7-83BE-5EC7869CE5C6}"
-          SQLTask:SqlStatementSource="UPDATE STG.etl_watermark&#xA;SET last_extract_date = &#xA;(&#xA;    SELECT MAX(src_update_date) &#xA;    FROM STG.Customer&#xA;)&#xA;WHERE table_name = 'Geolocationr';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT 1 FROM STG.etl_watermark WHERE table_name = 'Geolocation')&#xA;BEGIN&#xA;    UPDATE STG.etl_watermark&#xA;    SET last_extract_date = GETDATE()&#xA;    WHERE table_name = 'Geolocation';&#xA;END&#xA;ELSE&#xA;BEGIN&#xA;    INSERT INTO STG.etl_watermark (table_name, last_extract_date)&#xA;    VALUES ('Geolocation', GETDATE());&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1065,9 +1065,9 @@ WHERE last_update &gt; ?</property>
           Id="Package\trancate"
           TopLeft="408,50" />
         <NodeLayout
-          Size="163.2,41.6"
+          Size="145.6,41.6"
           Id="Package\update conf table"
-          TopLeft="384,407" />
+          TopLeft="378.000000089407,406.000000014901" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="468.5,92">
@@ -1136,18 +1136,30 @@ WHERE last_update &gt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="467,366">
+          TopLeft="468.6,365.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="-17.799999910593,40.4000000149011"
               Start="0,0"
-              End="0,33.5">
+              End="-17.799999910593,32.9000000149011">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,16.2000000074506" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2000000074506"
+                    Point2="0,20.2000000074506"
+                    Point3="-4,20.2000000074506" />
+                  <mssgle:LineSegment
+                    End="-13.799999910593,20.2000000074506" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.799999910593,20.2000000074506"
+                    Point2="-17.799999910593,20.2000000074506"
+                    Point3="-17.799999910593,24.2000000074506" />
+                  <mssgle:LineSegment
+                    End="-17.799999910593,32.9000000149011" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1163,7 +1175,7 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\load to dimnsion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\load to dimnsion\OLE DB Source"
@@ -1191,7 +1203,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1227,7 +1241,7 @@ WHERE last_update &gt; ?</property>
     design-time-name="Package\Load to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177,42"
           Id="Package\Load to stage\OLE DB Destination"
@@ -1271,7 +1285,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1293,7 +1309,9 @@ WHERE last_update &gt; ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
